@@ -64,6 +64,17 @@ body:
        - label: This error is related to the tracer
 
  - type: textarea
+   id: tracer-details
+   attributes:
+     label: Tracer Details
+     description: Please provide more details about the tracer error
+     placeholder: |
+       - Which tracer feature were you using?
+       - What contract were you tracing?
+       - Any specific tracer configuration?
+   visible: ${{ contains(fromJSON('["This error is related to the tracer"]'), github.event.inputs.tracer-error) }}
+
+ - type: textarea
    id: logs
    attributes:
      label: Screenshots or Logs
